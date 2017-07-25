@@ -1,0 +1,7 @@
+commerce_yandex_market.run:
+  path: '/run'
+  defaults:
+    _controller: '\Drupal\commerce_yandex_market\Controller\RunController::run'
+    _title: 'Run'
+  requirements:
+    _permission: 'administer content'

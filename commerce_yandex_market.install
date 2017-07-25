@@ -1,0 +1,15 @@
+<?php
+
+function commerce_yandex_market_requirements($phase)
+{
+    $requirements = [];
+    if ($phase == 'install') {
+        if (!extension_loaded('libxml')) {
+            $requirements['libxml'] = [
+                'description' => t('Requires the libxml PHP extension.'),
+                'severity' => REQUIREMENT_ERROR,
+            ];
+        }
+    }
+    return $requirements;
+}

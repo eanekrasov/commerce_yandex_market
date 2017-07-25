@@ -1,0 +1,14 @@
+<?php
+
+use Drupal\commerce_store\Entity\Store;
+use Drupal\commerce_yandex_market\YandexMarketLoader;
+
+function commerce_yandex_market_cron() {
+  ini_set("memory_limit", "1G");
+  if (php_sapi_name() === 'cli') {
+    $loader = new YandexMarketLoader();
+    $stores = Store::loadMultiple();
+    $loader->loadAllYml($stores);
+    //$loader->loadAllXml($stores);
+  }
+}
